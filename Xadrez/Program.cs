@@ -12,7 +12,20 @@ namespace Xadrez
             try
             {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
-                Util.ImprimirTabuleiro(partida.tab);
+
+                while (!partida.terminada)
+                {
+                    Console.Clear();
+                    Util.ImprimirTabuleiro(partida.tab);
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao origem = Util.LerPosicaoXadrez().ToPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Util.LerPosicaoXadrez().ToPosicao();
+                    partida.ExecutaMovimento(origem, destino);
+                }
+
+                
             }catch(TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
