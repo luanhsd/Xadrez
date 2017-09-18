@@ -2,17 +2,17 @@
 {
     class Peca
     {
-        public Posicao PosicaoAtual { get; set; }
-        public Cor CorPeca { get; protected set; }
-        public int QtdMovimentos { get; protected set; }
-        public Tabuleiro Tab { get; protected set; }
+        public Posicao posicao { get; set; }
+        public Cor cor { get; protected set; }
+        public int qtdMovimentos { get; protected set; }
+        public Tabuleiro tab { get; protected set; }
 
-        public Peca(Posicao PosicaoAtual, Cor CorPeca, Tabuleiro Tab)
+        public Peca(Posicao posicao, Cor cor, Tabuleiro tab)
         {
-            this.PosicaoAtual = PosicaoAtual;
-            this.CorPeca = CorPeca;
-            this.QtdMovimentos = 0;
-            this.Tab = Tab;
+            this.posicao = posicao;
+            this.cor = cor;
+            this.tab = tab;
+            this.qtdMovimentos = 0;
         }
     }
 }
