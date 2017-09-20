@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="jogo\Bispo.cs" />
+    <Compile Include="jogo\Cavalo.cs" />
+    <Compile Include="jogo\Dama.cs" />
     <Compile Include="jogo\PartidaDeXadrez.cs" />
+    <Compile Include="jogo\Peao.cs" />
     <Compile Include="jogo\PosicaoXadrez.cs" />
     <Compile Include="jogo\Rei.cs" />
     <Compile Include="jogo\Torre.cs" />
