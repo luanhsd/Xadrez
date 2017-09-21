@@ -129,6 +129,24 @@ namespace Xadrez.jogo
                 throw new TabuleiroException("Você não pode se colocar em Xeque");
             }
 
+            Peca p = tab.Peca(destino);
+
+            //#PROMOÇÃO
+
+            if (p is Peao)
+            {
+                if ((p.cor == Cor.Branca && destino.linha == 0) || (p.cor == Cor.Preta && destino.linha == 7))
+                {
+                    p = tab.RetirarPeca(destino);
+                    pecas.Remove(p);
+                    Peca dama = new Dama(tab, p.cor);
+                    tab.ColocarPeca(dama, destino);
+                    pecas.Add(dama);
+                }
+
+            }
+
+
             if (EstaEmXeque(Adversaria(jogadorAtual)))
                 xeque = true;
             else
@@ -142,14 +160,12 @@ namespace Xadrez.jogo
                 MudaJogador();
             }
 
-            Peca p = tab.Peca(destino);
-
             //#JOGADA EN PASSANT
             if (p is Peao && (destino.linha == origem.linha - 2 || destino.linha == origem.linha + 2))
                 vulneravelEnPassant = p;
             else
                 vulneravelEnPassant = null;
-            Debug.WriteLine("ENPASSANT: "+ vulneravelEnPassant);
+            Debug.WriteLine("ENPASSANT: " + vulneravelEnPassant);
         }
 
         public void ValidarPosicaoOrigem(Posicao pos)
